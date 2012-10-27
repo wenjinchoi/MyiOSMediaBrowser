@@ -18,6 +18,9 @@
 #define HTTP_PREFIX				@"http://"
 
 #define MY_PLACE_NAME           @"My Place"
+#define MY_PLACE_CHILDPATH_1    @"/Volumes/TEST-FAT/Movies"
+#define MY_PLACE_CHILDPATH_2    @"/Volumes/TEST-FAT/TV Shows"
+#define MY_PLACE_CHILDPATH_3    @"/Volumes/TEST-FAT/Videos"
 
 #define kMinOutlineViewSplit	120.0f
 
@@ -311,9 +314,9 @@
 {
     [self addFolder:MY_PLACE_NAME];
     
-    [self addChild:@"/Volumes/TEST-FAT/Movies" withName:nil selectParent:YES];
-    [self addChild:@"/Volumes/TEST-FAT/TV Shows" withName:nil selectParent:YES];
-    [self addChild:@"/Volumes/TEST-FAT/Videos" withName:nil selectParent:YES];
+    [self addChild:MY_PLACE_CHILDPATH_1 withName:nil selectParent:YES];
+    [self addChild:MY_PLACE_CHILDPATH_2 withName:nil selectParent:YES];
+    [self addChild:MY_PLACE_CHILDPATH_3 withName:nil selectParent:YES];
     
     [self selectParentFromSelection];
     

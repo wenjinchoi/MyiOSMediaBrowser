@@ -14,6 +14,9 @@
     IBOutlet NSSplitView       *mySplitView;
     IBOutlet NSOutlineView     *myOutlineView;
     IBOutlet NSTreeController  *treeController;
+    
+    IBOutlet NSCollectionView  *myCollectionView;
+    
     IBOutlet NSMenu            *outlineViewRigthClickMenu;
     
     NSMutableArray             *contents;
