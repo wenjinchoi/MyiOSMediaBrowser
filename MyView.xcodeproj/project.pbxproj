@@ -102,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7C8C6A163C4FEA00893A18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BD85316162DCFAA00D63E89 /* IconView.xib */,
+				0BA6ACAB1629C7430032564C /* MyWindowController.xib */,
+				0BA6AC7616298A700032564C /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		0BA6AC5216298A700032564C = {
 			isa = PBXGroup;
 			children = (
@@ -152,11 +162,9 @@
 				0BA6ACAA1629C7430032564C /* MyWindowController.m */,
 				0BD85314162DCFAA00D63E89 /* IconViewController.h */,
 				0BD85315162DCFAA00D63E89 /* IconViewController.m */,
-				0BD85316162DCFAA00D63E89 /* IconView.xib */,
-				0BA6ACAB1629C7430032564C /* MyWindowController.xib */,
-				0BA6AC7616298A700032564C /* MainMenu.xib */,
 				0BAE3F261629E2A6000DB2AB /* Cell Support  */,
 				0BA6ACB21629CC9A0032564C /* Tree Support */,
+				0B7C8C6A163C4FEA00893A18 /* Resources */,
 				0BA6AC6816298A700032564C /* Supporting Files */,
 			);
 			path = MyView;

@@ -97,6 +97,7 @@
     NSTableColumn *tablecolumn = [myOutlineView tableColumnWithIdentifier:COLUMN_NAME];
     ImageAndTextCell *imageandTextCell = [[[ImageAndTextCell alloc] init] autorelease];
     [imageandTextCell setEditable:YES];
+    [imageandTextCell setMenu:outlineViewRigthClickMenu];
     [tablecolumn setDataCell:imageandTextCell];
     
     separatorCell = [[SeparatorCell alloc] init];
@@ -310,6 +311,7 @@
 {
     [self addFolder:MY_PLACE_NAME];
     
+    [self addChild:@"/Volumes/TEST-FAT/Movies" withName:nil selectParent:YES];
     [self addChild:@"/Volumes/TEST-FAT/TV Shows" withName:nil selectParent:YES];
     [self addChild:@"/Volumes/TEST-FAT/Videos" withName:nil selectParent:YES];
     
