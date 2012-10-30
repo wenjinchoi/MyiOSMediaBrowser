@@ -238,6 +238,7 @@
 													<string key="NSFrame">{{1, 391}, {199, 16}}</string>
 													<reference key="NSSuperview" ref="222364917"/>
 													<reference key="NSWindow"/>
+													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:60</string>
 													<int key="NSsFlags">1</int>
 													<reference key="NSTarget" ref="222364917"/>
@@ -362,6 +363,14 @@
 					<int key="connectionID">107</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">renameWithMenu:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="723500403"/>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="1005"/>
@@ -427,6 +436,14 @@
 					<int key="connectionID">91</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menu</string>
+						<reference key="source" ref="119053447"/>
+						<reference key="destination" ref="435571659"/>
+					</object>
+					<int key="connectionID">109</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.nodeTitle</string>
 						<reference key="source" ref="738055204"/>
@@ -441,6 +458,14 @@
 						</object>
 					</object>
 					<int key="connectionID">96</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="435571659"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">110</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -799,7 +824,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">107</int>
+			<int key="maxID">112</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -807,12 +832,17 @@
 					<string key="className">MyWindowController</string>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="myCollectionView">NSCollectionView</string>
 						<string key="myOutlineView">NSOutlineView</string>
 						<string key="mySplitView">NSSplitView</string>
 						<string key="outlineViewRigthClickMenu">NSMenu</string>
 						<string key="treeController">NSTreeController</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="myCollectionView">
+							<string key="name">myCollectionView</string>
+							<string key="candidateClassName">NSCollectionView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="myOutlineView">
 							<string key="name">myOutlineView</string>
 							<string key="candidateClassName">NSOutlineView</string>

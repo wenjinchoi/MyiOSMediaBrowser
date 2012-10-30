@@ -100,7 +100,7 @@
     NSTableColumn *tablecolumn = [myOutlineView tableColumnWithIdentifier:COLUMN_NAME];
     ImageAndTextCell *imageandTextCell = [[[ImageAndTextCell alloc] init] autorelease];
     [imageandTextCell setEditable:YES];
-    [imageandTextCell setMenu:outlineViewRigthClickMenu];
+
     [tablecolumn setDataCell:imageandTextCell];
     
     separatorCell = [[SeparatorCell alloc] init];
@@ -342,5 +342,29 @@
 {
 	return proposedCoordinate - kMinOutlineViewSplit;
 }
+
+#pragma mark - Menu Action
+- (IBAction)renameWithMenu:(id)sender
+{
+    NSLog(@"Rename with menu");
+
+    NSInteger clickedRow = [myOutlineView clickedRow];
+    id item = nil;
+    
+    if (clickedRow != -1) {
+        item = [myOutlineView itemAtRow:clickedRow];
+        
+        [myOutlineView editColumn:0 row:clickedRow withEvent:nil select:YES];
+        
+        //BaseNode *node = [item representedObject];
+    }
+    
+}
+
+- (void)menuNeedsUpdate:(NSMenu *)menu
+{
+
+}
+
 
 @end

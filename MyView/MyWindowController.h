@@ -10,7 +10,7 @@
 
 @class SeparatorCell;
 
-@interface MyWindowController : NSWindowController {
+@interface MyWindowController : NSWindowController <NSMenuDelegate> {
     IBOutlet NSSplitView       *mySplitView;
     IBOutlet NSOutlineView     *myOutlineView;
     IBOutlet NSTreeController  *treeController;
