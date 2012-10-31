@@ -9,13 +9,20 @@
 #import <Cocoa/Cocoa.h>
 
 @class SeparatorCell;
+@class IconViewController;
 
 @interface MyWindowController : NSWindowController <NSMenuDelegate> {
     IBOutlet NSSplitView       *mySplitView;
+    IBOutlet NSView            *placeHolderView;
     IBOutlet NSOutlineView     *myOutlineView;
-    IBOutlet NSTreeController  *treeController;
     
-    IBOutlet NSCollectionView  *myCollectionView;
+    IBOutlet NSTreeController  *treeController;
+   
+    
+    NSView *currentView;
+    IconViewController *iconViewController;
+    
+    //IBOutlet NSCollectionView  *myCollectionView;
     
     IBOutlet NSMenu            *outlineViewRigthClickMenu;
     

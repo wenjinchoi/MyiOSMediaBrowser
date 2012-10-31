@@ -10,6 +10,7 @@
 #import "ImageAndTextCell.h"
 #import "SeparatorCell.h"
 #import "ChildNode.h"
+#import "IconViewController.h"
 
 #define COLUMN_NAME             @"NameColumn"
 
@@ -91,11 +92,25 @@
 {
     [contents release];
     
+    [iconViewController release];
+    
     [super dealloc];
 }
 
 -(void)awakeFromNib
 {
+    // 加载 Icon View Controller，后面会用到
+    iconViewController = [[IconViewController alloc] initWithNibName:@"IconView" bundle:nil];
+    
+    [placeHolderView addSubview:[iconViewController view]];
+    currentView = [iconViewController view];
+    
+    NSRect newBounds;
+    newBounds.origin.x = 0;
+    newBounds.origin.y = 0;
+    newBounds.size.width = [[currentView superview] frame].size.width;
+    newBounds.size.height = [[currentView superview] frame].size.height;
+    [currentView setFrame:[[currentView superview] frame]];
     
     NSTableColumn *tablecolumn = [myOutlineView tableColumnWithIdentifier:COLUMN_NAME];
     ImageAndTextCell *imageandTextCell = [[[ImageAndTextCell alloc] init] autorelease];

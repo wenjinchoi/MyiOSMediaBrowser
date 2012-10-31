@@ -238,7 +238,6 @@
 													<string key="NSFrame">{{1, 391}, {199, 16}}</string>
 													<reference key="NSSuperview" ref="222364917"/>
 													<reference key="NSWindow"/>
-													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:60</string>
 													<int key="NSsFlags">1</int>
 													<reference key="NSTarget" ref="222364917"/>
@@ -369,6 +368,14 @@
 						<reference key="destination" ref="723500403"/>
 					</object>
 					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">placeHolderView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="891513312"/>
+					</object>
+					<int key="connectionID">113</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -824,25 +831,32 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">112</int>
+			<int key="maxID">113</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">MyWindowController</string>
 					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">renameWithMenu:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">renameWithMenu:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">renameWithMenu:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="myCollectionView">NSCollectionView</string>
 						<string key="myOutlineView">NSOutlineView</string>
 						<string key="mySplitView">NSSplitView</string>
 						<string key="outlineViewRigthClickMenu">NSMenu</string>
+						<string key="placeHolderView">NSView</string>
 						<string key="treeController">NSTreeController</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="myCollectionView">
-							<string key="name">myCollectionView</string>
-							<string key="candidateClassName">NSCollectionView</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="myOutlineView">
 							<string key="name">myOutlineView</string>
 							<string key="candidateClassName">NSOutlineView</string>
@@ -854,6 +868,10 @@
 						<object class="IBToOneOutletInfo" key="outlineViewRigthClickMenu">
 							<string key="name">outlineViewRigthClickMenu</string>
 							<string key="candidateClassName">NSMenu</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="placeHolderView">
+							<string key="name">placeHolderView</string>
+							<string key="candidateClassName">NSView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="treeController">
 							<string key="name">treeController</string>
