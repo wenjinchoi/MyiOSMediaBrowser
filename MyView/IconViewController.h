@@ -19,4 +19,7 @@
 
 @property (readwrite, retain) NSURL *url;
 
+- (IBAction)exportByMenu:(id)sender;
+
+
 @end
