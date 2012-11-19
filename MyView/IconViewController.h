@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface IconViewBox : NSBox
+@end
+
 @interface IconViewController : NSViewController {
     NSArrayController *iconArrayController;
     NSURL *url;

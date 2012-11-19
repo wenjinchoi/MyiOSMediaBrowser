@@ -12,6 +12,16 @@
 NSString const *KEY_NAME = @"name";
 NSString const *KEY_ICON = @"icon";
 
+@implementation IconViewBox
+
+-(NSView *)hitTest:(NSPoint)aPoint
+{
+    return nil;
+}
+
+@end
+
+
 @interface IconViewController ()
 
 @property (readwrite, retain) NSArrayController *iconArrayController;
