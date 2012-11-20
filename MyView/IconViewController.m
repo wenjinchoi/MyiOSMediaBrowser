@@ -9,8 +9,8 @@
 #import "IconViewController.h"
 
 // key value for the icon view dictionary
-NSString const *KEY_NAME = @"name";
-NSString const *KEY_ICON = @"icon";
+NSString *KEY_NAME = @"name";
+NSString *KEY_ICON = @"icon";
 
 @implementation IconViewBox
 
@@ -24,14 +24,15 @@ NSString const *KEY_ICON = @"icon";
 
 @interface IconViewController ()
 
-@property (readwrite, retain) NSArrayController *iconArrayController;
+// @property (readwrite, retain) NSArrayController *iconArrayController;
 @property (readwrite, retain) NSMutableArray *icons;
 
 @end
 
 @implementation IconViewController
 
-@synthesize iconArrayController, icons, url;
+@synthesize icons, url;
+// @synthesize iconArrayController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +46,7 @@ NSString const *KEY_ICON = @"icon";
 
 - (void)awakeFromNib
 {
+    // [collectionView addObserver:self forKeyPath:@"selectionIndexes" options:NSKeyValueObservingOptionNew context:nil];
     [NSThread detachNewThreadSelector:@selector(gatherContents:) toTarget:self withObject:nil];
 }
 
@@ -104,7 +106,15 @@ NSString const *KEY_ICON = @"icon";
 #pragma mark - Menu Action
 
 - (IBAction)exportByMenu:(id)sender {
-
+    NSIndexSet *indexSet = [collectionView selectionIndexes];
+    
+    NSUInteger index = [indexSet firstIndex];
+    for (NSUInteger i = 0; i < [indexSet count]; i++) {
+        NSLog(@"%@", [[icons objectAtIndex:index] valueForKey:KEY_NAME]);
+        index = [indexSet indexGreaterThanIndex:index];
+    }
+    
+    NSLog(@"exporting...");
 }
 
 @end

@@ -12,7 +12,8 @@
 @end
 
 @interface IconViewController : NSViewController {
-    NSArrayController *iconArrayController;
+    IBOutlet NSCollectionView *collectionView;
+    // NSArrayController *iconArrayController;
     NSURL *url;
     NSMutableArray *icons;
 }
