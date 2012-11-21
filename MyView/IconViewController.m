@@ -114,7 +114,22 @@ NSString *KEY_ICON = @"icon";
         index = [indexSet indexGreaterThanIndex:index];
     }
     
-    NSLog(@"exporting...");
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    
+    [panel setCanSelectHiddenExtension:NO];
+    [panel setNameFieldStringValue:@"ExportFolder"];
+    
+    [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result){
+        if (result == NSOKButton) {
+            NSURL *saveURL = [panel URL];
+            
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            [fileManager createDirectoryAtURL:saveURL withIntermediateDirectories:YES attributes:nil error:nil];
+            
+            NSLog(@"Write to %@", [saveURL description]);
+        }
+    }];
+
 }
 
 @end
