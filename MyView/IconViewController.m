@@ -47,6 +47,8 @@ NSString *KEY_ICON = @"icon";
 - (void)awakeFromNib
 {
     // [collectionView addObserver:self forKeyPath:@"selectionIndexes" options:NSKeyValueObservingOptionNew context:nil];
+    self.url = [NSURL URLWithString:@"/Users/wenjinchoi/Pictures/test"];
+    
     [NSThread detachNewThreadSelector:@selector(gatherContents:) toTarget:self withObject:nil];
 }
 
@@ -61,12 +63,9 @@ NSString *KEY_ICON = @"icon";
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    // for test
-    url = [NSURL URLWithString:@"/Users/wenjinchoi/Pictures/test"];
-    
     NSMutableArray *contentsArray = [[NSMutableArray alloc] init];
     
-    NSArray *fileurls = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:url
+    NSArray *fileurls = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:self.url
                                                       includingPropertiesForKeys:[NSArray array]
                                                                          options:0
                                                                            error:nil];
@@ -125,6 +124,13 @@ NSString *KEY_ICON = @"icon";
             
             NSFileManager *fileManager = [NSFileManager defaultManager];
             [fileManager createDirectoryAtURL:saveURL withIntermediateDirectories:YES attributes:nil error:nil];
+            
+            NSString *fileName = [[icons objectAtIndex:[indexSet firstIndex]] valueForKey:KEY_NAME];
+            NSURL *srcURL = [url URLByAppendingPathComponent:fileName];
+            NSURL *dstURL = [saveURL URLByAppendingPathComponent:fileName];
+            
+            NSError *err;
+            [fileManager copyItemAtURL:srcURL toURL:dstURL error:&err];
             
             NSLog(@"Write to %@", [saveURL description]);
         }
