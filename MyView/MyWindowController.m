@@ -105,6 +105,9 @@
     [placeHolderView addSubview:[iconViewController view]];
     currentView = [iconViewController view];
     
+    [exportButton setTarget:iconViewController];
+    [exportButton setAction:@selector(exportSelectedItem:)];
+    
     NSRect newBounds;
     newBounds.origin.x = 0;
     newBounds.origin.y = 0;

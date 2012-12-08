@@ -104,7 +104,7 @@ NSString *KEY_ICON = @"icon";
 
 #pragma mark - Menu Action
 
-- (IBAction)exportByMenu:(id)sender {
+- (IBAction)exportSelectedItem:(id)sender {
     
     // 获取当前选中的项
     NSMutableArray *selectedFilesURL = [NSMutableArray array];

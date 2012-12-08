@@ -16,6 +16,8 @@
     IBOutlet NSView            *placeHolderView;
     IBOutlet NSOutlineView     *myOutlineView;
     
+    IBOutlet NSButton          *exportButton;
+    
     IBOutlet NSTreeController  *treeController;
    
     
