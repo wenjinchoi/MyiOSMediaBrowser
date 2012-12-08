@@ -47,7 +47,7 @@ NSString *KEY_ICON = @"icon";
 - (void)awakeFromNib
 {
     // [collectionView addObserver:self forKeyPath:@"selectionIndexes" options:NSKeyValueObservingOptionNew context:nil];
-    self.url = [NSURL URLWithString:@"/Users/wenjinchoi/Pictures/test"];
+    self.url = [NSURL fileURLWithPath:@"/Users/wenjinchoi/Pictures/test"];
     
     [NSThread detachNewThreadSelector:@selector(gatherContents:) toTarget:self withObject:nil];
 }
@@ -105,16 +105,24 @@ NSString *KEY_ICON = @"icon";
 #pragma mark - Menu Action
 
 - (IBAction)exportByMenu:(id)sender {
+    
+    // 获取当前选中的项
+    NSMutableArray *selectedFilesURL = [NSMutableArray array];
     NSIndexSet *indexSet = [collectionView selectionIndexes];
     
+    // 逐项遍历 能不能用枚举？
     NSUInteger index = [indexSet firstIndex];
     for (NSUInteger i = 0; i < [indexSet count]; i++) {
-        NSLog(@"%@", [[icons objectAtIndex:index] valueForKey:KEY_NAME]);
+        NSString *selectedFileName = [[icons objectAtIndex:index] valueForKey:KEY_NAME];
+        NSURL *selectedFileURL = [url URLByAppendingPathComponent:selectedFileName];
+        [selectedFilesURL addObject:selectedFileURL];
+        
         index = [indexSet indexGreaterThanIndex:index];
     }
-    
+
     NSSavePanel *panel = [NSSavePanel savePanel];
     
+    //设置：不能选择隐藏文件、默认保存文件夹名称
     [panel setCanSelectHiddenExtension:NO];
     [panel setNameFieldStringValue:@"ExportFolder"];
     
@@ -125,14 +133,12 @@ NSString *KEY_ICON = @"icon";
             NSFileManager *fileManager = [NSFileManager defaultManager];
             [fileManager createDirectoryAtURL:saveURL withIntermediateDirectories:YES attributes:nil error:nil];
             
-            NSString *fileName = [[icons objectAtIndex:[indexSet firstIndex]] valueForKey:KEY_NAME];
-            NSURL *srcURL = [url URLByAppendingPathComponent:fileName];
-            NSURL *dstURL = [saveURL URLByAppendingPathComponent:fileName];
-            
-            NSError *err;
-            [fileManager copyItemAtURL:srcURL toURL:dstURL error:&err];
-            
-            NSLog(@"Write to %@", [saveURL description]);
+            for (NSURL *srcFileURL in selectedFilesURL) {
+                if (srcFileURL) {
+                    NSURL *dstURL = [saveURL URLByAppendingPathComponent:[srcFileURL lastPathComponent]];
+                    [fileManager copyItemAtURL:srcFileURL toURL:dstURL error:nil];
+                }
+            }
         }
     }];
 
